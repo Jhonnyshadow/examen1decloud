@@ -8,10 +8,11 @@
 class Database {
 
     //Propiedades estaticas con la informacion de la conexion (DSN):
-    private static $dbName = 'construccion';
-    private static $dbHost = 'localhost';
-    private static $dbUsername = 'root';
-    private static $dbUserPassword = '';
+    private static $dbName = 'd6h6dvf16i1s3v';
+    private static $dbHost = 'ec2-54-235-156-60.compute-1.amazonaws.com';
+    private static $dbUsername = 'nsuznbdeoveebf';
+    private static $dbUserPassword = 'd85e14bc0e41086b830677b02e76fc05ac39759b5cf8ed857d7e971e313f26aa';
+    private Static $dbPort='5432';
     //Propiedad para control de la conexion:
     private static $conexion = null;
 
@@ -31,7 +32,7 @@ class Database {
         // Una sola conexion para toda la aplicacion (singleton):
         if (null == self::$conexion) {
             try {
-                self::$conexion = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
+                self::$conexion = new PDO("pgsql:host=" . self::$dbHost . ";"."port=".self::$dbPort .";". "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
             } catch (PDOException $e) {
                 die($e->getMessage());
             }
