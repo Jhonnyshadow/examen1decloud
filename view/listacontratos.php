@@ -19,7 +19,7 @@ session_start();
         <div class="container">
             <img src="images/banner_contacto.jpg">
             <div class="row">
-                <h3>CONTRATOS</h3>
+                <h3>PRODUCTOS</h3>
 
             </div>
             <div class="row">
@@ -30,20 +30,16 @@ session_start();
            
         </p>
          <div class="panel panel-primary">
-                    <div    class=" panel-heading"><b>INGRESO DATOS CONSTRUCCION</b></div>
+                    <div    class=" panel-heading"><b>INVENTARIO</b></div>
                     <div class=" panel-body">
         <table data-toggle="table">
             <thead>
                 <tr>
-                    <th>CEDULA</th>
-                    <th>NOMBRE</th>
-                    <th>APELLIDO</th>
-                    <th>INICIO CONTRATO</th>
-                    <th>FIN CONTRATO</th>
-                    <th>OFICIO</th>
-                    <th>CODIGO CONTRATO</th>
-                    <th>OPCIONES</th>
-
+                    <th>Codigo</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Operacion</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,16 +52,12 @@ session_start();
                     
                     foreach ($listado1 as $facturaDet1) {
                     foreach ($listado as $facturaDet) {
-                        if ($facturaDet1->getCod_contrato()==$facturaDet->getCodigo_contrato()) {
+                        if ($facturaDet1->getCodigo()==$facturaDet->getCodigo_contrato()) {
                         echo "<tr>";
-                        echo "<td>" . $facturaDet1->getCedula() . "</td>";
-                        echo "<td>" . $facturaDet1->getNombre() . "</td>";
-                        echo "<td>" . $facturaDet1->getApellido() . "</td>";
-                        echo "<td>" . $facturaDet->getInicio_contrato() . "</td>";
-                        echo "<td>" . $facturaDet->getFin_contrato() . "</td>";
-                        echo "<td>" . $facturaDet->getOficio() . "</td>";
-                        echo "<td>" . $facturaDet->getCodigo_contrato() . "</td>";
-                        echo "<td><a href='../controller/controller.php?opcion=eliminar_contrato&codigo_contrato=" . $facturaDet->getCodigo_contrato() . "'>ELIMINAR</a></td>";
+                        echo "<td>" . $facturaDet1->getDescripcion() . "</td>";
+                        echo "<td>" . $facturaDet1->getCantidad() . "</td>";
+                        echo "<td>" . $facturaDet1->getPrecio() . "</td>";
+                        echo "<td><a href='../controller/controller.php?opcion=eliminar_contrato&codigo_contrato=" . $facturaDet->getCodigo() . "'>ELIMINAR</a></td>";
                         echo "</tr>";
                         }
                     }

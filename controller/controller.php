@@ -18,12 +18,8 @@ $mensajeError = "";
 unset($_SESSION['mensajeError']);
 switch ($opcion) {
     case "listar_contratos":
-        $listaContrato = $crudModel->getContratos();
+        $listaContrato = $crudModel->getProductos();
         $_SESSION['listaContrato'] = serialize($listaContrato);
-        $listaSalarios = $crudModel->getSalarios();
-        $_SESSION['listaSalarios'] = serialize($listaSalarios);
-         $listaObreros = $crudModel->getObreros();
-        $_SESSION['listaObreros'] = serialize($listaObreros);
         header('Location: ../view/listacontratos.php');
         break;
     case "listar_salarios":
